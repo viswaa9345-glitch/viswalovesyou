@@ -1,0 +1,385 @@
+/* ==========================================================================
+   அடியே என் குலசாமியே... ❤️ | ANIMATIONS & CINEMATIC TRANSITIONS
+   ========================================================================== */
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cinematicReveal {
+  from {
+    opacity: 0.18;
+    filter: blur(8px);
+    transform: translateY(24px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes chapterAura {
+  from { transform: scale(1) translate3d(-1%, -1%, 0); opacity: 0.55; }
+  to { transform: scale(1.08) translate3d(1%, 1%, 0); opacity: 1; }
+}
+
+@keyframes buttonBreath {
+  0%, 100% { box-shadow: 0 10px 30px rgba(223, 184, 114, 0.3); }
+  50% { box-shadow: 0 14px 42px rgba(223, 184, 114, 0.52), 0 0 28px rgba(157, 92, 255, 0.2); }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(223, 184, 114, 0.2), 0 0 50px rgba(223, 184, 114, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(223, 184, 114, 0.5), 0 0 80px rgba(223, 184, 114, 0.25);
+  }
+}
+
+@keyframes pulseCrimsonGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(224, 75, 104, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(224, 75, 104, 0.5);
+  }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  70% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes spinDisc {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes lightBeamSweep {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(200%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes ringSparkle {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 25px rgba(223, 184, 114, 0.8));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 50px rgba(223, 184, 114, 1));
+    transform: scale(1.06);
+  }
+}
+
+/* Scroll Triggered Cinematic Classes */
+.reveal-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.reveal-scale {
+  transform: scale(0.93) translateY(20px);
+}
+
+.reveal-on-scroll.reveal-fade {
+  transform: none;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: cinematicReveal 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Small butterflies drift through the story without blocking clicks. */
+.butterfly-flight {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.butterfly {
+  --flight-x: 120px;
+  --flight-y: -110vh;
+  --flight-duration: 18s;
+  --flight-delay: 0s;
+  --butterfly-color: #d9a8ff;
+  position: absolute;
+  left: var(--start-x);
+  bottom: -40px;
+  width: 26px;
+  height: 22px;
+  opacity: 0;
+  filter: drop-shadow(0 0 8px var(--butterfly-color));
+  animation: butterflyRise var(--flight-duration) cubic-bezier(0.37, 0, 0.63, 1) var(--flight-delay) infinite;
+  will-change: transform, opacity;
+}
+
+.butterfly-wing {
+  position: absolute;
+  z-index: 1;
+  width: 16px;
+  height: 19px;
+  border: 1px solid rgba(255, 244, 255, 0.58);
+  background: radial-gradient(circle at 68% 35%, rgba(255, 255, 255, 0.9) 0 5%, transparent 7%), repeating-linear-gradient(118deg, transparent 0 5px, rgba(255, 255, 255, 0.22) 6px 7px, transparent 8px 12px), radial-gradient(circle at 45% 55%, var(--butterfly-color) 0 18%, transparent 20%), linear-gradient(145deg, #f7e8ff, var(--butterfly-color) 58%, #7140a8);
+  box-shadow: inset -2px -2px 4px rgba(45, 15, 78, 0.3), inset 2px 2px 4px rgba(255, 255, 255, 0.32);
+  animation: wingBeat 1.05s ease-in-out infinite alternate;
+}
+
+.butterfly-wing-upper-left,
+.butterfly-wing-upper-right {
+  top: -7px;
+  height: 19px;
+  border-radius: 88% 18% 68% 28%;
+}
+
+.butterfly-wing-lower-left,
+.butterfly-wing-lower-right {
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 30% 70% 22% 78%;
+  background: radial-gradient(circle at 55% 48%, rgba(255, 255, 255, 0.7) 0 7%, transparent 9%), repeating-linear-gradient(70deg, transparent 0 5px, rgba(255, 255, 255, 0.18) 6px 7px, transparent 8px 11px), linear-gradient(155deg, #efcfff, var(--butterfly-color) 65%, #653894);
+  animation-duration: 0.92s;
+}
+
+.butterfly-wing-upper-left { right: 8px; transform-origin: right bottom; }
+.butterfly-wing-lower-left { right: 8px; transform-origin: right top; }
+.butterfly-wing-upper-right { left: 8px; transform: scaleX(-1); transform-origin: left bottom; }
+.butterfly-wing-lower-right { left: 8px; transform: scaleX(-1); transform-origin: left top; }
+
+.butterfly-body {
+  position: absolute;
+  left: 50%;
+  top: 1px;
+  z-index: 2;
+  width: 4px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(#33213d, #0d0813 60%, #8a5b9e);
+  transform: translateX(-50%);
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.45);
+}
+
+.butterfly-body::before,
+.butterfly-body::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid rgba(32, 15, 43, 0.9);
+  border-radius: 50%;
+}
+
+.butterfly-body::before { right: 0; transform: rotate(28deg); }
+.butterfly-body::after { left: 0; transform: rotate(-28deg); }
+
+@keyframes butterflyRise {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-14deg) scale(var(--butterfly-scale)); }
+  10% { opacity: 0.82; }
+  28% { transform: translate3d(calc(var(--flight-x) * -0.45), -23vh, 0) rotate(10deg) scale(var(--butterfly-scale)); }
+  42% { transform: translate3d(calc(var(--flight-x) * 0.25), -35vh, 0) rotate(-7deg) scale(calc(var(--butterfly-scale) * 1.04)); }
+  53% { transform: translate3d(calc(var(--flight-x) * 0.25), -37vh, 0) rotate(-2deg) scale(calc(var(--butterfly-scale) * 1.04)); }
+  70% { transform: translate3d(var(--flight-x), -68vh, 0) rotate(14deg) scale(var(--butterfly-scale)); }
+  88% { opacity: 0.72; }
+  100% { opacity: 0; transform: translate3d(calc(var(--flight-x) * -0.7), var(--flight-y), 0) rotate(-16deg) scale(calc(var(--butterfly-scale) * 0.94)); }
+}
+
+@keyframes wingBeat {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(62deg); }
+}
+
+/* Stagger Delays */
+.stagger-1 { transition-delay: 0.15s; animation-delay: 0.15s; }
+.stagger-2 { transition-delay: 0.3s; animation-delay: 0.3s; }
+.stagger-3 { transition-delay: 0.45s; animation-delay: 0.45s; }
+.stagger-4 { transition-delay: 0.6s; animation-delay: 0.6s; }
+.stagger-5 { transition-delay: 0.75s; animation-delay: 0.75s; }
+.stagger-6 { transition-delay: 0.9s; animation-delay: 0.9s; }
+
+/* Interactive Hover Utilities */
+.hover-float {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-float:hover {
+  transform: translateY(-8px);
+}
+
+.hover-glow-gold:hover {
+  box-shadow: 0 15px 40px rgba(223, 184, 114, 0.35);
+  border-color: var(--gold-light);
+}
+
+/* Atmospheric Darkness to Light Stages */
+.theme-dark-abyss {
+  background: radial-gradient(circle at 50% 50%, #0d0d16 0%, #050508 100%);
+}
+
+.theme-dark-glow {
+  background: radial-gradient(circle at 50% 40%, #151424 0%, #06060a 100%);
+}
+
+.theme-dark-purple {
+  background: radial-gradient(circle at 70% 30%, #1e132b 0%, #07070c 100%);
+}
+
+.theme-deep-blue {
+  background: radial-gradient(circle at 30% 60%, #0e1a2f 0%, #06060c 100%);
+}
+
+.theme-csk-gold {
+  background: radial-gradient(circle at 50% 50%, rgba(248, 195, 0, 0.08) 0%, #090912 100%);
+}
+
+.theme-goa-sunset {
+  background: radial-gradient(circle at 80% 20%, rgba(230, 100, 40, 0.12) 0%, rgba(30, 20, 45, 0.8) 50%, #07070d 100%);
+}
+
+.theme-warm-amber {
+  background: radial-gradient(circle at 50% 50%, rgba(223, 184, 114, 0.14) 0%, #0c0b14 100%);
+}
+
+.theme-intense-crimson {
+  background: radial-gradient(circle at 50% 50%, rgba(224, 75, 104, 0.12) 0%, #0d0810 100%);
+}
+
+.theme-quiet-piano {
+  background: radial-gradient(circle at 50% 50%, #101018 0%, #040406 100%);
+}
+
+.theme-soft-sunrise {
+  background: radial-gradient(circle at 50% 30%, rgba(245, 225, 164, 0.12) 0%, #0e0d18 100%);
+}
+
+.theme-celebration-gold {
+  background: radial-gradient(circle at 50% 50%, rgba(223, 184, 114, 0.22) 0%, #12101f 100%);
+}
+
+.theme-golden-warmth {
+  background: radial-gradient(circle at 50% 50%, rgba(230, 157, 69, 0.18) 0%, #121018 100%);
+}
+
+.theme-radiant-gold {
+  background: radial-gradient(circle at 50% 40%, rgba(255, 235, 180, 0.25) 0%, rgba(35, 25, 15, 0.6) 60%, #0a0808 100%);
+}
+
+/* Keep every chapter connected to the violet luxury direction. */
+.story-chapter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 18% 25%, rgba(126, 62, 196, 0.16), transparent 26%), radial-gradient(circle at 82% 72%, rgba(91, 45, 159, 0.13), transparent 30%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  animation: chapterAura 16s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .butterfly-flight {
+    display: none;
+  }
+  .story-chapter::before,
+  .reveal-on-scroll.is-revealed {
+    animation: none !important;
+    filter: none !important;
+  }
+}
