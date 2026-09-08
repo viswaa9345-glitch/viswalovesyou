@@ -1,0 +1,302 @@
+/* ==========================================================================
+   அடியே என் குலசாமியே... ❤️ | PROPOSAL CLIMAX & CELEBRATION STYLES
+   ========================================================================== */
+
+.chapter-proposal-stage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, #15101f 0%, #08070d 60%, #030305 100%);
+  padding: 120px 24px;
+}
+
+.proposal-ring-container {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25) 0%, rgba(223, 184, 114, 0.15) 60%, transparent 100%);
+  border: 2px solid var(--border-gold-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.2rem;
+  box-shadow: 0 0 50px var(--gold-glow-intense), 0 0 100px rgba(223, 184, 114, 0.3);
+  animation: pulseGoldGlow 3s infinite ease-in-out, floatGentle 5s infinite ease-in-out;
+}
+
+.proposal-lines-box {
+  max-width: 740px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.proposal-line {
+  font-family: var(--font-subheading);
+  font-size: clamp(1.2rem, 2.4vw, 1.65rem);
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+
+.proposal-line.highlight {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  font-weight: 700;
+  color: var(--gold-light);
+  margin: 28px 0;
+  text-shadow: 0 0 25px var(--gold-glow);
+}
+
+.proposal-main-question {
+  margin: 40px auto;
+}
+
+.proposal-tamil-title {
+  font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+  color: var(--text-pure);
+  margin-bottom: 12px;
+  text-shadow: 0 0 40px var(--gold-glow-intense);
+}
+
+.proposal-eng-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  letter-spacing: 4px;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px var(--gold-glow);
+}
+
+/* Proposal Buttons Area */
+.proposal-action-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  margin-top: 50px;
+  position: relative;
+  min-height: 100px;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-proposal-yes {
+  padding: 18px 44px;
+  background: linear-gradient(135deg, #e04b68 0%, #ff6b8b 50%, #c4294a 100%);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 1.5px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(224, 75, 104, 0.6), 0 0 30px rgba(224, 75, 104, 0.4);
+  transition: var(--transition-smooth);
+  animation: pulseCrimsonGlow 2.5s infinite;
+  z-index: 10;
+}
+
+.btn-proposal-yes:hover {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 0 20px 60px rgba(224, 75, 104, 0.9), 0 0 50px rgba(255, 107, 139, 0.8);
+}
+
+.btn-proposal-no {
+  padding: 16px 36px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  z-index: 9;
+  position: relative;
+}
+
+.chapter-proposal-stage .chapter-inner {
+  max-width: 900px;
+  padding: clamp(28px, 5vw, 62px);
+  border: 1px solid rgba(245, 225, 164, 0.16);
+  border-radius: 32px;
+  background: linear-gradient(145deg, rgba(24, 16, 34, 0.68), rgba(5, 5, 8, 0.38));
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn-proposal-yes,
+.btn-proposal-no {
+  min-height: 54px;
+}
+
+/* Playful Toast Alert */
+.playful-toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(18, 16, 28, 0.95);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8), var(--shadow-gold);
+  z-index: 10002;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  white-space: nowrap;
+}
+
+.playful-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Fullscreen Celebration Overlay */
+.celebration-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 50%, rgba(25, 15, 30, 0.96) 0%, rgba(5, 5, 8, 0.98) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.2s ease;
+}
+
+.celebration-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#confetti-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.celebration-container {
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: fadeInScale 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.celebration-badge-ring {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  box-shadow: 0 0 60px var(--gold-glow-intense);
+  animation: floatGentle 5s infinite ease-in-out;
+}
+
+.celebration-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: #ffffff;
+  margin-bottom: 24px;
+  text-shadow: 0 0 40px rgba(224, 75, 104, 0.8);
+}
+
+.celebration-timeline-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 480px;
+  margin: 0 auto 30px;
+}
+
+.celebration-summary-item {
+  font-family: var(--font-subheading);
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+.celebration-summary-item.forever {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--gold-primary);
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.celebration-names-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: 3px;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.celebration-petname-tamil {
+  font-family: var(--font-tamil-serif);
+  font-size: 1.6rem;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+}
+
+.celebration-heart-quote {
+  font-family: var(--font-subheading);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-style: italic;
+  line-height: 1.8;
+  max-width: 540px;
+  margin: 0 auto 36px;
+}
+
+.celebration-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .proposal-action-area {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .chapter-proposal-stage .chapter-inner {
+    padding: 32px 18px;
+    border-radius: 24px;
+  }
+}
